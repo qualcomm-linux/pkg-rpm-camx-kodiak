@@ -2,7 +2,7 @@
 
 Template repository for creating RPM package repositories for Qualcomm® Linux.
 
-Clone this template to create a `pkg-rpm-<component>` repo for **one** RPM
+Clone this template to create a `pkg-rpm-camx-kodiak` repo for **one** RPM
 package. Your spec file and a small `sources` pointer go on a per-stream branch
 (`c10s`); the shipped GitHub Actions workflows build the RPM on every PR and
 publish it to Artifactory on demand. All build/release logic lives in the shared
