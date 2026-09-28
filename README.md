@@ -11,19 +11,6 @@ release workflow.
 The prebuilt CamX camera framework binaries are available from
 [QArtifactory](https://qartifactory-edge.qualcomm.com/ui/native/qsc_releases/software/chip/component/camx.qclinux.0.0/).
 
-
-## CI Workflows
-
-| Workflow | Trigger | Purpose |
-|---|---|---|
-| [`build-on-pr.yml`](.github/workflows/build-on-pr.yml) | Pull request | Build the RPM(s) so reviewers confirm the package still builds. Read-only — never publishes. |
-| [`pkg-release.yml`](.github/workflows/pkg-release.yml) | Manual (`workflow_dispatch`) | Build **and** publish the RPM(s) to Artifactory, behind an approval gate. |
-
-The GitHub Actions workflows use the shared
-[`qcom-rpm-utils`](https://github.com/qualcomm-linux/qcom-rpm-utils) build
-environment and run `rpmbuild` inside the prebuilt `rpm-builder` container
-image for the runner's host architecture.
-
 ---
 
 ## Repository Layout
@@ -54,7 +41,7 @@ sudo dnf install camx-kodiak
 Install the camera-service runtime package together with the core package:
 
 ```bash
-sudo dnf install camx-kodiak libcamx-kodiak1
+sudo dnf install -y camx-kodiak libcamx-kodiak1
 ```
 
 Package roles:

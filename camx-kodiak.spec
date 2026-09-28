@@ -19,17 +19,9 @@ Name:           camx-kodiak
 Version:        1.0.45
 Release:        1%{?dist}
 Summary:        Qualcomm CamX camera driver libraries for Kodiak (QCM6490)
-
-License:        LicenseRef-Qualcomm-Proprietary
-URL:            http://support.cdmatech.com
-
+License:        LicenseRef-Qualcomm-nologin-binaries-license
 Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/camx.qclinux.0.0/%{upstream_tag}/prebuilt_rpm/%{name}-%{version}_%{payload_release}.%{payload_distro}.aarch64.tar.gz
-
 ExclusiveArch:  aarch64
-
-Recommends:     qcom-adreno-cl
-Recommends:     qcom-adreno-egl
-Recommends:     qcom-adreno-gles2
 
 %description
 Qualcomm CamX usermode libraries for the Kodiak (QCM6490) platform.
