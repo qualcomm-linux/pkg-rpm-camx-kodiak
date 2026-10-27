@@ -8,20 +8,29 @@
 %global camx_plugin_dir  %{camx_basedir}/camx/%{camx_platform}
 %global camx_hexagon_dsp_dir %{_datadir}/hexagon-dsp/qcm6490/Thundercomm/RB3gen2/dsp/cdsp
 
-%global upstream_tag 260925
+%global upstream_tag 261026
 %global payload_release 1
 %global payload_distro el10
 
-%global __provides_exclude_from ^(%{camx_plugin_dir}|%{_datadir}/qcom|%{camx_hexagon_dsp_dir})/.*$
-%global __requires_exclude ^lib(adsp_.*|bitml_nsp.*|bitmlenginev2|camera_hardware|camera_metadata|camera_nn_stub|camx_hardware|camx_metadata|camxcommonutils|camxexternalformatutils|camxfdengine|camxgenerated|camximageformatutils|camxifestriping|camxsensorconfig|camxtintlessalgo|chicustomization|chilog|chiofflinepostproclib|com\\.qti\\.camx\\.chiiqutils|com\\.qti\\.chinodeutils|defog|dsp_streamer.*|ipebpsstriping|ipebpsstriping170|ioteis1_26|ioteis_26|mesh_fusion26|offlinedump|shdr3|swregistrationalgo)\\.so.*$
 
 Name:           camx-kodiak
-Version:        1.0.45
+Version:        1.0.51
 Release:        1%{?dist}
 Summary:        Qualcomm CamX camera driver libraries for Kodiak (QCM6490)
 License:        LicenseRef-Qualcomm-nologin-binaries-license
 Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/camx.qclinux.0.0/%{upstream_tag}/prebuilt_rpm/%{name}-%{version}_%{payload_release}.%{payload_distro}.aarch64.tar.gz
 ExclusiveArch:  aarch64
+
+Recommends:     adreno-opencl-icd
+Recommends:     adreno-egl1
+Recommends:     adreno-gles2
+Recommends:     libfastcvopt1
+Recommends:     qcom-fastcv-binaries
+Recommends:     qcom-sensing-hub
+Recommends:     qmi-framework
+Recommends:     qcom-sensors-core
+Recommends:     qcom-sensors-services
+Recommends:     qcom-sensors-registry
 
 %description
 Qualcomm CamX usermode libraries for the Kodiak (QCM6490) platform.
@@ -137,6 +146,9 @@ rm -rf %{buildroot}%{_docdir}/camx-kodiak-devel
 %{camx_plugin_dir}/camera/components/*.so
 
 %changelog
+* Wed Oct 28 2026 Qualcomm Camera Team <camx.deb.maintainers@qti.qualcomm.com> - 1.0.51-1
+- Update the prebuilt Kodiak CamX payload to version 1.0.51
+
 * Mon Sep 28 2026 Qualcomm Camera Team <camx.deb.maintainers@qti.qualcomm.com> - 1.0.45-1
 - Initial RPM release for the prebuilt Kodiak CamX payload.
 - Move private CamX linker symlinks to a devel subpackage.
